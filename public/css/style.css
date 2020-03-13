@@ -1,11 +1,13 @@
 #list1 {
   position: absolute;
   z-index: 9;
-  max-width: 400px;
   margin: 50px auto;
   background: white;
   border-radius: 5px;
   text-align: center;
+  width: 450px;
+  max-width: 450px;
+  min-width: 450px;
   -webkit-box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
@@ -15,17 +17,33 @@
   align-items: center;
   border-bottom: 1px solid #f1f1f1;
 }
-#list1:last-child {
+#list1 .item:hover {
+  background: #f9f9f9;
+  -webkit-box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+#list1 .item:last-child {
   border-bottom: 0;
 }
-#list1 input:checked + p {
+#list1 .item input:checked + p {
   background: #f9f9f9;
   text-decoration: line-through;
 }
-#list1 input[type=checkbox] {
+#list1 .item input[type=checkbox] {
   margin: 20px;
 }
-#list1 p {
+#list1 .item .choreText {
+  margin: 0;
+  padding: 20px;
+  transition: background 0.2s;
+  flex: 5;
+  font-family: "helvetica neue";
+  font-size: 20px;
+  font-weight: 200;
+  border-left: 1px solid #d1e2ff;
+}
+#list1 .delete {
   margin: 0;
   padding: 20px;
   transition: background 0.2s;
