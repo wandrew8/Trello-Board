@@ -1,9 +1,7 @@
+@import "helpers";
 @import "todoList";
+@import "header";
+
 body {
   background-color: lightgoldenrodyellow;
-  position: relative;
-  h1 {
-    color: #444;
-    font-size: 5rem;
-  }
 }

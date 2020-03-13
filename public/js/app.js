@@ -90,7 +90,9 @@ const colorButtons = document.querySelectorAll('.color');
 const listHeader = document.querySelector("#list1header")
 colorButtons.forEach(function(button) {
     button.style.backgroundColor = button.dataset.color;
-    button.style.opacity = 0.5;
+    button.style.opacity = 0.9;
+    button.style.border = "solid rgba(0,0,0,0.1) 1px"
+    button.style.boxShadow = "2px 2px 2px rgba(0,0,0,0.5)"
     button.addEventListener('click', function() {
         listHeader.style.backgroundColor = button.dataset.color;
     })
