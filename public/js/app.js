@@ -83,3 +83,20 @@ function handleCheck(e) {
 }
 
 checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+
+
+// Changes background color of list header with onclick event
+const colorButtons = document.querySelectorAll('.color');
+const listHeader = document.querySelector("#list1header")
+colorButtons.forEach(function(button) {
+    button.style.backgroundColor = button.dataset.color;
+    button.style.opacity = 0.5;
+    button.addEventListener('click', function() {
+        listHeader.style.backgroundColor = button.dataset.color;
+    })
+});
+
+
+
+
+
