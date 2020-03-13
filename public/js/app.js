@@ -28,6 +28,9 @@ function dragElement(elmnt) {
   function elementDrag(e) {
     e = e || window.event;
     console.log(pos1, pos2, pos3, pos4)
+    console.log(elmnt.width)
+    console.log(elmnt.height)
+    console.log(elmnt)
 
     e.preventDefault();
     // calculate the new cursor position:
@@ -36,8 +39,10 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = pos4 -120 + "px";
-    elmnt.style.left = pos3 -120 + "px";
+    elmnt.style.top = pos4 - 150 + "px";
+    elmnt.style.left = pos3 - 150 + "px";
+    // elmnt.style.top = pos4 -120 + "px";
+    // elmnt.style.left = pos3 -120 + "px";
   }
 
   function closeDragElement() {
@@ -48,3 +53,33 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+
+
+const checkboxes = document.querySelectorAll('.todoList input[type="checkbox"]');
+
+let lastChecked;
+
+function handleCheck(e) {
+  // Check if they had the shift key down
+  // AND check that they are checking it
+  let inBetween = false;
+  if (e.shiftKey && this.checked) {
+    // go ahead and do what we please
+    // loop over every single checkbox
+    checkboxes.forEach(checkbox => {
+      console.log(checkbox);
+      if (checkbox === this || checkbox === lastChecked) {
+        inBetween = !inBetween;
+        console.log('Starting to check them in between!');
+      }
+
+      if (inBetween) {
+        checkbox.checked = true;
+      }
+    });
+  }
+
+  lastChecked = this;
+}
+
+checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
