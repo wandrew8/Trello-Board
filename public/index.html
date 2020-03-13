@@ -3,56 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Document</title>
   </head>
   <body>
     <header>
       <h1>Trello Board</h1>
-      <div class="buttonGroup"></div>
+      <div class="background-select">
+        <div class="bgcolor" data-color="#f1f2f6"></div>
+        <div class="bgcolor" data-color="#f7f1e3"></div>
+        <div class="bgcolor" data-color="#dfe4ea"></div>
+      </div>
     </header>
     <div class="todoList" id="list1">
-      <div id="list1header">
-        <p>TO DO LIST</p>
+      <div class="grid">
+        <div id="list1header">
+          <span id="move"><i class="fa fa-arrows"></i></span>
+        </div>
+        <div class="header" contenteditable="true">
+          TO DO LIST
+        </div>
         <div class="color-select">
-          <div class="color colorOne" data-color="#ff4757"></div>
-          <div class="color colorTwo" data-color="#1e90ff"></div>
+          <div class="color colorOne" data-color="#ff6b81"></div>
+          <div class="color colorTwo" data-color="#2196f3"></div>
           <div class="color colorThree" data-color="#2ed573"></div>
         </div>
       </div>
-      <div class="item">
+      <div contenteditable="true" class="item">
         <input type="checkbox" />
         <p>This is an inbox layout.</p>
       </div>
-      <div class="item">
+      <div contenteditable="true" class="item">
         <input type="checkbox" />
         <p>Check one item</p>
       </div>
-      <div class="item">
+      <div contenteditable="true" class="item">
         <input type="checkbox" />
         <p>Hold down your Shift key</p>
       </div>
-      <div class="item">
+      <div contenteditable="true" class="item">
         <input type="checkbox" />
         <p>Check a lower item</p>
       </div>
-      <div class="item">
+      <div contenteditable="true" class="item">
         <input type="checkbox" />
         <p>Everything in between should also be set to checked</p>
       </div>
-      <div class="item">
+      <div contenteditable="true" class="item">
         <input type="checkbox" />
         <p>Try do it without any libraries</p>
       </div>
-      <div class="item">
+      <div contenteditable="true" class="item">
         <input type="checkbox" />
         <p>Just regular JavaScript</p>
       </div>
-      <div class="item">
+      <div contenteditable="true" class="item">
         <input type="checkbox" />
         <p>Good Luck!</p>
       </div>
-      <div class="item">
+      <div contenteditable="true" class="item">
         <input type="checkbox" />
         <p>Don't forget to tweet your result!</p>
       </div>

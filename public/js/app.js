@@ -39,8 +39,8 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = pos4 - 150 + "px";
-    elmnt.style.left = pos3 - 150 + "px";
+    elmnt.style.top = pos4 - 75 + "px";
+    elmnt.style.left = pos3 - 20 + "px";
     // elmnt.style.top = pos4 -120 + "px";
     // elmnt.style.left = pos3 -120 + "px";
   }
@@ -87,7 +87,7 @@ checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
 
 // Changes background color of list header with onclick event
 const colorButtons = document.querySelectorAll('.color');
-const listHeader = document.querySelector("#list1header")
+const listHeader = document.querySelector(".grid")
 colorButtons.forEach(function(button) {
     button.style.backgroundColor = button.dataset.color;
     button.style.opacity = 0.9;
@@ -98,6 +98,17 @@ colorButtons.forEach(function(button) {
     })
 });
 
+const backgroundColorButtons = document.querySelectorAll('.bgcolor');
+const bodyBackground = document.querySelector("body")
+backgroundColorButtons.forEach(function(button) {
+    button.style.backgroundColor = button.dataset.color;
+    button.style.opacity = 0.9;
+    button.style.border = "solid rgba(0,0,0,0.1) 2px"
+    button.style.boxShadow = "2px 2px 2px rgba(0,0,0,0.5)"
+    button.addEventListener('click', function() {
+      bodyBackground.style.backgroundColor = button.dataset.color;
+    })
+});
 
 
 
