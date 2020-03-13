@@ -94,7 +94,10 @@ colorButtons.forEach(function(button) {
     button.style.border = "solid rgba(0,0,0,0.1) 1px"
     button.style.boxShadow = "2px 2px 2px rgba(0,0,0,0.5)"
     button.addEventListener('click', function() {
-        listHeader.style.backgroundColor = button.dataset.color;
+      const addChoreButton = button.parentElement.parentElement.parentElement.querySelector('.chore');
+      console.log(addChoreButton)
+      addChoreButton.style.color = button.dataset.color;
+      listHeader.style.backgroundColor = button.dataset.color;
     })
 });
 
@@ -122,7 +125,6 @@ choreItems.forEach(item => {
   })
 })
 
-
 //Click event ot delete list item
 const deleteButtons = document.querySelectorAll('.delete');
 deleteButtons.forEach(button => {
@@ -133,4 +135,38 @@ deleteButtons.forEach(button => {
   })
 })
 
+//Hover Effects for drag and add chore functionality
+const dragger = document.querySelector('#move');
+const toDoList = document.querySelectorAll('.todoList');
 
+toDoList.forEach(list => {
+  const dragger = list.querySelector('.fa-arrows');
+  const addChoreButton = list.querySelector('.addChore')
+  list.addEventListener('mouseenter', function(e) {
+    dragger.classList.remove('hidden');
+    addChoreButton.classList.remove('hidden')
+
+  })
+  list.addEventListener('mouseleave', function(e) {
+    dragger.classList.add('hidden');
+    addChoreButton.classList.add('hidden')
+})})
+
+//Click event to add new chores
+const addChore = document.querySelectorAll('.addChore');
+addChore.forEach(button => {
+  button.addEventListener('click', function() {
+    let html = `<input type="checkbox" />
+    <p contenteditable="true" class="choreText">New Task</p>
+    <p contenteditable="false" class="delete hidden">
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    </p>
+  `;
+  const div = document.createElement('DIV');
+  div.classList.add('item');
+  div.innerHTML = html;
+  const lastItem = button.parentElement;
+  lastItem.appendChild(div)
+  
+  })
+})

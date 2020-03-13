@@ -52,12 +52,13 @@
   }
   .hidden {
     display: none;
+    transition: ease-in 0.5s;
   }
 
   .header {
     margin: 0;
     padding: 20px;
-    transition: background ease-in 0.5s;
+    transition: ease-in 0.5s;
     flex: 1;
     font-family: "helvetica neue";
     font-size: 30px;
@@ -87,7 +88,7 @@
     color: #fff;
     display: flex;
     border-radius: 5px 5px 0px 0px;
-
+    transition: ease-in 0.5s;
     align-items: center;
     justify-content: center;
   }
@@ -111,5 +112,26 @@
     justify-content: space-between;
     background-color: #2196f3;
     border-radius: 5px 5px 0px 0px;
+  }
+  .addChore {
+    text-align: center;
+    font-size: 4rem;
+    width: 0px;
+    height: 0px;
+    justify-content: center;
+    margin: 0 auto;
+    i {
+      position: absolute;
+      bottom: -79px;
+      left: 172px;
+      opacity: 0.5;
+      padding: 2rem;
+      color: #2196f3;
+      transition: ease-in 0.5s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }
