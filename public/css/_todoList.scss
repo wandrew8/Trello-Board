@@ -1,8 +1,11 @@
-.todoList {
+#list1 {
+  position: absolute;
+  z-index: 9;
   max-width: 400px;
   margin: 50px auto;
   background: white;
   border-radius: 5px;
+  text-align: center;
   box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
   .item {
     display: flex;
@@ -29,5 +32,12 @@
     font-size: 20px;
     font-weight: 200;
     border-left: 1px solid #d1e2ff;
+  }
+  #list1header {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196f3;
+    color: #fff;
   }
 }

@@ -1,26 +1,29 @@
-.todoList {
+#list1 {
+  position: absolute;
+  z-index: 9;
   max-width: 400px;
   margin: 50px auto;
   background: white;
   border-radius: 5px;
+  text-align: center;
   box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
 }
-.todoList .item {
+#list1 .item {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #f1f1f1;
 }
-.todoList:last-child {
+#list1:last-child {
   border-bottom: 0;
 }
-.todoList input:checked + p {
+#list1 input:checked + p {
   background: #f9f9f9;
   text-decoration: line-through;
 }
-.todoList input[type=checkbox] {
+#list1 input[type=checkbox] {
   margin: 20px;
 }
-.todoList p {
+#list1 p {
   margin: 0;
   padding: 20px;
   transition: background 0.2s;
@@ -30,10 +33,17 @@
   font-weight: 200;
   border-left: 1px solid #d1e2ff;
 }
+#list1 #list1header {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196f3;
+  color: #fff;
+}
 
 body {
-  text-align: center;
   background-color: lightgoldenrodyellow;
+  position: relative;
 }
 body h1 {
   color: #444;
