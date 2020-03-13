@@ -42,16 +42,20 @@
   font-size: 20px;
   font-weight: 200;
   border-left: 1px solid #d1e2ff;
+  text-align: left;
 }
 #list1 .delete {
   margin: 0;
   padding: 20px;
-  transition: background 0.2s;
+  transition: 0.2s;
   flex: 1;
   font-family: "helvetica neue";
   font-size: 20px;
   font-weight: 200;
   border-left: 1px solid #d1e2ff;
+}
+#list1 .hidden {
+  display: none;
 }
 #list1 .header {
   margin: 0;

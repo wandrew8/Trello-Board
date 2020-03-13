@@ -37,18 +37,23 @@
       font-size: 20px;
       font-weight: 200;
       border-left: 1px solid #d1e2ff;
+      text-align: left;
     }
   }
   .delete {
     margin: 0;
     padding: 20px;
-    transition: background 0.2s;
+    transition: 0.2s;
     flex: 1;
     font-family: "helvetica neue";
     font-size: 20px;
     font-weight: 200;
     border-left: 1px solid #d1e2ff;
   }
+  .hidden {
+    display: none;
+  }
+
   .header {
     margin: 0;
     padding: 20px;

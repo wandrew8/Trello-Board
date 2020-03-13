@@ -110,6 +110,27 @@ backgroundColorButtons.forEach(function(button) {
     })
 });
 
+//Hover effect to show delete button
+const choreItems = document.querySelectorAll(".item");
+choreItems.forEach(item => {
+  const deleteButton = item.querySelector('.delete');
+  item.addEventListener('mouseenter', function(e) {
+    deleteButton.classList.remove('hidden')
+  })
+  item.addEventListener('mouseleave', function(e) {
+    deleteButton.classList.add('hidden')
+  })
+})
 
+
+//Click event ot delete list item
+const deleteButtons = document.querySelectorAll('.delete');
+deleteButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    const parentElement = button.parentElement;
+    console.log(parentElement)
+    parentElement.remove();
+  })
+})
 
 
