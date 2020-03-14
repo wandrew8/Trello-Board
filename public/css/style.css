@@ -1,4 +1,5 @@
-#list1 {
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap");
+.todoList {
   position: absolute;
   z-index: 9;
   margin: 50px auto;
@@ -12,68 +13,68 @@
   -moz-box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
 }
-#list1 .item {
+.todoList .item {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #f1f1f1;
 }
-#list1 .item:hover {
+.todoList .item:hover {
   background: #f9f9f9;
   -webkit-box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
-#list1 .item:last-child {
+.todoList .item:last-child {
   border-bottom: 0;
 }
-#list1 .item input:checked + p {
+.todoList .item input:checked + p {
   background: #f9f9f9;
   text-decoration: line-through;
 }
-#list1 .item input[type=checkbox] {
+.todoList .item input[type=checkbox] {
   margin: 20px;
 }
-#list1 .item .choreText {
+.todoList .item .choreText {
   margin: 0;
   padding: 20px;
   transition: background 0.2s;
   flex: 5;
-  font-family: "helvetica neue";
   font-size: 20px;
   font-weight: 200;
   border-left: 1px solid #d1e2ff;
   text-align: left;
 }
-#list1 .delete {
+.todoList .delete {
   margin: 0;
-  padding: 20px;
+  padding: 20px 30px;
   transition: 0.2s;
   flex: 1;
-  font-family: "helvetica neue";
   font-size: 20px;
   font-weight: 200;
+  position: absolute;
+  background-color: #f9f9f9;
+  right: 0;
   border-left: 1px solid #d1e2ff;
 }
-#list1 .hidden {
+.todoList .hidden {
   display: none;
   transition: ease-in 0.5s;
 }
-#list1 .header {
+.todoList .header {
   margin: 0;
   padding: 20px;
   transition: ease-in 0.5s;
   flex: 1;
-  font-family: "helvetica neue";
   font-size: 30px;
   font-weight: 200;
   align-self: center;
   text-transform: uppercase;
   color: #fff;
 }
-#list1 .header:hover {
+.todoList .header:hover {
   cursor: text;
 }
-#list1 span {
+.todoList span {
   font-size: 2rem;
   opacity: 0.5;
   position: absolute;
@@ -81,11 +82,11 @@
   left: 0.5rem;
   transition: ease-in 300ms;
 }
-#list1 span:hover {
+.todoList span:hover {
   opacity: 1;
   cursor: move;
 }
-#list1 #list1header {
+.todoList #list1header {
   padding: 10px;
   z-index: 10;
   color: #fff;
@@ -95,28 +96,28 @@
   align-items: center;
   justify-content: center;
 }
-#list1 .color-select {
+.todoList .color-select {
   display: flex;
   flex-direction: column;
   margin: 0.5rem;
 }
-#list1 .color {
+.todoList .color {
   height: 10px;
   width: 10px;
   border-radius: 50%;
   padding: 5px;
   margin: 2px;
 }
-#list1 .color:hover {
+.todoList .color:hover {
   cursor: pointer;
 }
-#list1 .grid {
+.todoList .grid {
   display: flex;
   justify-content: space-between;
   background-color: #2196f3;
   border-radius: 5px 5px 0px 0px;
 }
-#list1 .addChore {
+.todoList .addChore {
   text-align: center;
   font-size: 4rem;
   width: 0px;
@@ -124,7 +125,7 @@
   justify-content: center;
   margin: 0 auto;
 }
-#list1 .addChore i {
+.todoList .addChore i {
   position: absolute;
   bottom: -79px;
   left: 172px;
@@ -133,7 +134,7 @@
   color: #2196f3;
   transition: ease-in 0.5s;
 }
-#list1 .addChore i:hover {
+.todoList .addChore i:hover {
   opacity: 1;
 }
 
@@ -155,13 +156,17 @@ header {
   box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 header h1 {
+  font-weight: 300;
   color: white;
   text-align: center;
+  margin: 0rem 2rem;
+  text-transform: uppercase;
 }
 header .background-select {
   display: flex;
   flex-direction: row;
   margin-right: 30px;
+  align-items: center;
 }
 header .bgcolor {
   height: 20px;
@@ -174,12 +179,24 @@ header .bgcolor {
 header .bgcolor:hover {
   cursor: pointer;
 }
+header .addList {
+  text-align: center;
+  font-size: 4rem;
+  justify-content: center;
+  margin: 0 auto;
+}
+header .addList i {
+  color: #fff;
+  transition: ease-in 0.5s;
+  margin: 0 2rem;
+}
 
 body {
   background-color: #f7f1e3;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  font-family: "Roboto", sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */

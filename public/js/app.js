@@ -84,23 +84,26 @@ function handleCheck(e) {
 
 checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
 
-
-// Changes background color of list header with onclick event
-const colorButtons = document.querySelectorAll('.color');
-const listHeader = document.querySelector(".grid")
-colorButtons.forEach(function(button) {
+function changeHeaderColor() {
+  
+  // Changes background color of list header with onclick event
+  const colorButtons = document.querySelectorAll('.color');
+  const listHeader = document.querySelector(".grid")
+  colorButtons.forEach(function(button) {
     button.style.backgroundColor = button.dataset.color;
     button.style.opacity = 0.9;
     button.style.border = "solid rgba(0,0,0,0.1) 1px"
     button.style.boxShadow = "2px 2px 2px rgba(0,0,0,0.5)"
     button.addEventListener('click', function() {
       const addChoreButton = button.parentElement.parentElement.parentElement.querySelector('.chore');
+      const header = button.parentElement.parentElement.parentElement.querySelector('.grid')
       console.log(addChoreButton)
       addChoreButton.style.color = button.dataset.color;
-      listHeader.style.backgroundColor = button.dataset.color;
+      header.style.backgroundColor = button.dataset.color;
     })
-});
-
+  });
+  
+}
 const backgroundColorButtons = document.querySelectorAll('.bgcolor');
 const bodyBackground = document.querySelector("body")
 backgroundColorButtons.forEach(function(button) {
@@ -114,6 +117,8 @@ backgroundColorButtons.forEach(function(button) {
 });
 
 //Hover effect to show delete button
+function addDeleteButtons() {
+
 const choreItems = document.querySelectorAll(".item");
 choreItems.forEach(item => {
   const deleteButton = item.querySelector('.delete');
@@ -125,48 +130,117 @@ choreItems.forEach(item => {
   })
 })
 
-//Click event ot delete list item
-const deleteButtons = document.querySelectorAll('.delete');
-deleteButtons.forEach(button => {
-  button.addEventListener('click', function() {
-    const parentElement = button.parentElement;
-    console.log(parentElement)
-    parentElement.remove();
+//Click event to delete list item
+  let deleteButtons = document.querySelectorAll('.delete');
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const parentElement = button.parentElement;
+      console.log(parentElement)
+      parentElement.remove();
+    })
   })
-})
+}
 
-//Hover Effects for drag and add chore functionality
-const dragger = document.querySelector('#move');
-const toDoList = document.querySelectorAll('.todoList');
+function addDrag() {
 
-toDoList.forEach(list => {
-  const dragger = list.querySelector('.fa-arrows');
-  const addChoreButton = list.querySelector('.addChore')
-  list.addEventListener('mouseenter', function(e) {
-    dragger.classList.remove('hidden');
-    addChoreButton.classList.remove('hidden')
-
-  })
-  list.addEventListener('mouseleave', function(e) {
-    dragger.classList.add('hidden');
-    addChoreButton.classList.add('hidden')
-})})
-
-//Click event to add new chores
-const addChore = document.querySelectorAll('.addChore');
-addChore.forEach(button => {
-  button.addEventListener('click', function() {
-    let html = `<input type="checkbox" />
-    <p contenteditable="true" class="choreText">New Task</p>
-    <p contenteditable="false" class="delete hidden">
-      <i class="fa fa-trash-o" aria-hidden="true"></i>
-    </p>
-  `;
-  const div = document.createElement('DIV');
-  div.classList.add('item');
-  div.innerHTML = html;
-  const lastItem = button.parentElement;
-  lastItem.appendChild(div)
+  //Hover Effects for drag and add chore functionality
+  const toDoList = document.querySelectorAll('.todoList');
   
+  toDoList.forEach(list => {
+    const dragger = list.querySelector('.fa-arrows');
+    const addChoreButton = list.querySelector('.addChore')
+    list.addEventListener('mouseenter', function(e) {
+      dragger.classList.remove('hidden');
+      addChoreButton.classList.remove('hidden')
+      
+    })
+    list.addEventListener('mouseleave', function(e) {
+      dragger.classList.add('hidden');
+      addChoreButton.classList.add('hidden')
+    })})
+  }
+
+    
+//Adds new list item
+function addNewChores() {
+  const addChore = document.querySelectorAll('.addChore');
+  addChore.forEach(button => {
+    button.addEventListener('click', function() {
+      let html = `<input tabindex="-1" type="checkbox" />
+      <p contenteditable="true" class="choreText">New Task</p>
+      <p contenteditable="false" class="delete hidden">
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </p>
+      `;
+      const div = document.createElement('DIV');
+      div.classList.add('item');
+      div.innerHTML = html;
+      const list = this.parentElement;
+      list.appendChild(div);
+      addDeleteButtons();
+    })
   })
-})
+}
+
+//Adds new to-do list
+function createNewList() {
+    const body = document.querySelector('body');
+    let i = 1;
+    const content = `
+      <div class="grid">
+      <div id="list${i}header">
+      <span id="move"><i class="fa hidden fa-arrows"></i></span>
+      </div>
+      <div class="header" contenteditable="true">
+      TO DO LIST
+      </div>
+      <div class="color-select">
+      <div class="color colorOne" data-color="#ff6b81"></div>
+      <div class="color colorTwo" data-color="#2196f3"></div>
+      <div class="color colorThree" data-color="#2ed573"></div>
+      </div>
+      </div>
+      <div class="item">
+      <input tabindex="-1" type="checkbox" />
+      <p contenteditable="true" class="choreText">
+      Enter your first task here...
+      </p>
+      <p contenteditable="false" class="delete">
+      <i class="fa fa-trash-o " aria-hidden="true"></i>
+      </p>
+      </div>
+      <div class="item">
+      <input tabindex="-1" type="checkbox" />
+      <p contenteditable="true" class="choreText">Welcome to Trello Board!</p>
+      <p contenteditable="false" class="delete hidden">
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+      </p>
+      </div>
+      <div class="addChore ">
+      <i class="fa chore fa-plus-circle" aria-hidden="true"></i>
+      </div>
+      `;
+      const newList = document.createElement('DIV');
+      newList.classList.add('todoList');
+      newList.setAttribute('id', `list${i}`);
+      newList.innerHTML = content;
+      body.appendChild(newList)
+    console.log(body)
+    console.log(newList)
+    i++;
+    addDeleteButtons();
+    addNewChores();
+    changeHeaderColor();
+    addDrag();
+
+}
+
+const addListButton = document.querySelector('.addList');
+addListButton.addEventListener('click', createNewList)
+
+
+addDeleteButtons();
+addNewChores();
+changeHeaderColor();
+addDrag();
+
