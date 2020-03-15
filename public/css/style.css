@@ -20,16 +20,19 @@
 }
 .todoList .item:hover {
   background: #f9f9f9;
-  -webkit-box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
 .todoList .item:last-child {
   border-bottom: 0;
 }
-.todoList .item input:checked + p {
+.todoList .item input:checked + .choreText {
   background: #f9f9f9;
   text-decoration: line-through;
+}
+.todoList .item input {
+  border: none;
+}
+.todoList .item input:hover {
+  background: #f9f9f9;
 }
 .todoList .item input[type=checkbox] {
   margin: 20px;
@@ -39,7 +42,7 @@
   padding: 20px;
   transition: background 0.2s;
   flex: 5;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 200;
   border-left: 1px solid #d1e2ff;
   text-align: left;
@@ -68,13 +71,14 @@
   font-size: 30px;
   font-weight: 200;
   align-self: center;
-  text-transform: uppercase;
   color: #fff;
+  text-transform: uppercase;
 }
 .todoList .header:hover {
   cursor: text;
 }
 .todoList span {
+  color: #fff;
   font-size: 2rem;
   opacity: 0.5;
   position: absolute;

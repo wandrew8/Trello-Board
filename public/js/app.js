@@ -167,7 +167,7 @@ function addNewChores() {
   addChore.forEach(button => {
     button.addEventListener('click', function() {
       let html = `<input tabindex="-1" type="checkbox" />
-      <p contenteditable="true" class="choreText">New Task</p>
+      <input placeholder="..." contenteditable="true" class="choreText"></input>
       <p contenteditable="false" class="delete hidden">
       <i class="fa fa-trash-o" aria-hidden="true"></i>
       </p>
@@ -183,9 +183,9 @@ function addNewChores() {
 }
 
 //Adds new to-do list
+let i = 2;
 function createNewList() {
     const body = document.querySelector('body');
-    let i = 1;
     const content = `
       <div class="grid">
       <div id="list${i}header">
@@ -202,16 +202,15 @@ function createNewList() {
       </div>
       <div class="item">
       <input tabindex="-1" type="checkbox" />
-      <p contenteditable="true" class="choreText">
-      Enter your first task here...
-      </p>
+      <input placeholder="Enter your first task here..." contenteditable="true" class="choreText">
+      </input>
       <p contenteditable="false" class="delete">
       <i class="fa fa-trash-o " aria-hidden="true"></i>
       </p>
       </div>
       <div class="item">
       <input tabindex="-1" type="checkbox" />
-      <p contenteditable="true" class="choreText">Welcome to Trello Board!</p>
+      <input placeholder="..." contenteditable="true" class="choreText"></input>
       <p contenteditable="false" class="delete hidden">
       <i class="fa fa-trash-o" aria-hidden="true"></i>
       </p>
@@ -227,11 +226,13 @@ function createNewList() {
       body.appendChild(newList)
     console.log(body)
     console.log(newList)
-    i++;
     addDeleteButtons();
     addNewChores();
     changeHeaderColor();
     addDrag();
+    dragElement(document.getElementById(`list${i}`));
+    i++;
+
 
 }
 
